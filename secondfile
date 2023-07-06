@@ -1,1 +1,2 @@
-this file is created in github GUI and will be pushed to kali terminal via git pull or git fetch
+this file is created in github GUI and will be pushed to kali terminal via git "pull shashank6613/horizon"
+and this line is edited/added from kali cli to push again to githb repo horizon from master branch
