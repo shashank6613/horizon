@@ -1,1 +1,2 @@
 "this file is created for the assignmemt of the jenkins assignment-1"
+commint from cli of master server
