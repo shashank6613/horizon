@@ -1,2 +1,3 @@
 "this file is creted in vs code and tried to pich inti git repo"
 "here extra line is pushed"
+"new push is done from vs code"
