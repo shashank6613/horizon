@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  labels:
+    app: springboot-app
+  name: springboot-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springboot-app
+  template:
+    metadata:
+      labels:
+        app: springboot-app
+    spec:
+      containers:
+      - name: my-springboot-app
+        image: 799344209838.dkr.ecr.us-east-1.amazonaws.com/shank04/test-repo:$BUILD_ID
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8085
+          name: http
+          protocol: TCP
+# service type nodeport       
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: default
+  labels:
+    app: springboot-app
+    k8s-app: springboot-app
+  name: springboot-service
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8085
+    nodePort: 32055
+  type: NodePort
+  selector:
+    app: springboot-app
